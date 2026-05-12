@@ -40,7 +40,8 @@ jobs:
       - name: Scaffold Android Project
         run: |
           if [ ! -d "android" ]; then
-            npx react-native @0.72.6 init temp --version 0.72.6
+            # Fix: correctly specify the version for npx
+            npx react-native@0.72.6 init temp --version 0.72.6 --skip-install --skip-git-init
             mv temp/android .
             rm -rf temp
           fi
